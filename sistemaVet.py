@@ -37,21 +37,38 @@ class Mascota:
 
 class sistemaV:
     def __init__(self):
-        self.__lista_mascotas = []
-        # self.__lista_mascotas = {}
+        self.__lista_caninos = {}
+        self.__lista_felinos={}
 
-    def verificarExiste(self,historia):
-        for m in self.__lista_mascotas:
-            if historia == m.verHistoria():
-                return True
+    def verificarExiste1(self,historia):
+        if historia in self.__lista_caninos:
+            return True
+        elif historia in self.__lista_felinos:
+            return True 
+        else:
+            return False
+        
+        #for m in self.__lista_mascotas:
+            #if historia == m.verHistoria():
+                #return True
         #solo luego de haber recorrido todo el ciclo se retorna False
-        return False
+        
 
-    def verNumeroMascotas(self):
-        return len(self.__lista_mascotas) 
+    def verNumeroCaninos(self):
+        return len(self.__lista_caninos) 
+    
+    def verNumeroFelinos(self):
+        return len(self.__lista_felinos) 
 
     def ingresarMascota(self,mascota):
-        self.__lista_mascotas.append(mascota) 
+        if mascota.verTipo()=="Canino":
+            self.lista__caninos[mascota.verHistoria()]=mascota
+        elif mascota.verTipo()=="Felino":
+            self.lista__felinos[mascota.verHistoria()]=mascota
+        else:
+            print("Ingresó un tipo no reconocido por el sistema")
+
+        
         # self.__lista_mascotas[mascota.verHistoria()]=mascota
 
     def verFechaIngreso(self,historia):
